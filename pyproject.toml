@@ -1,0 +1,99 @@
+[tool.poetry]
+name = "b2b-test"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "b2b_test"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.1"
+djangorestframework = "^3.15.2"
+django-filter = "^24.3"
+ipython = "^8.26.0"
+psycopg2 = "^2.9.9"
+ruff = "^0.5.7"
+gunicorn = "^23.0.0"
+drf-yasg = "^1.21.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+target-version = "py38"
+task-tags = ["TODO", "FIXME", "NOTE"]
+fix = true
+show-fixes = true
+preview = true
+respect-gitignore = false
+line-length = 120
+select = [
+    "F",     # PyFlakes
+    "I",     # isort
+    "UP",    # PyUpgrade
+    "YTT",   # flake8-2020
+    "ASYNC", # flake8-async
+    "TRIO",  # flake8-trio
+    "B",     # bugbear
+    "C4",    # flake8-comprehensions
+    "T10",   # flake8-debugger
+    "EXE",   # flake8-executable
+    "INP",   # flake8-no-pep420
+    "PIE",   # flake8-pie
+    "PYI",   # flake8-pyi
+    "PT",    # flake8-pytest
+    "Q",     # flake8-quotes
+    "RSE",   # flake8-raise
+    "SLF",   # flake8-self
+    "SIM",   # flake8-simplify
+    "TID",   # flake8-tidy-imports
+    "TCH",   # flake8-type-checking
+    "INT",   # flake8-gettext
+    "ERA",   # flake8-eradicate
+    "PGH",   # pygrep-hooks
+    "FLY",   # flynt
+    "NPY",   # NumPy-specific rules
+    "PERF",  # Perflint
+    "FURB",  # Refurb
+    "LOG",   # flake8-logging
+    "RUF",   # Ruff-specific rules
+    "S",     # flake8-bandit
+    "T20",   # flake8-print
+    "ARG",   # flake8-unused-arguments
+
+    # # FIXME (ab@spenxy.com): ❗️ Enable these ASAP:
+    # "DTZ", # flake8-datetimez
+    # "PD",  # pandas-vet
+
+    # # NOTE (ab@spenxy.com): 🐞 Uncomment when ready to refactor
+    # # these nasty abysses of code.
+    # "C90", # McCabe
+    # "ANN", # flake8-annotations
+    # "FBT", # flake8-boolean-trap
+    # "RET", # flake8-return
+    # "PTH", # flake8-use-pathlib
+    # "TD",  # flake8-todo
+    # "FIX", # flake8-fixme
+
+    # # NOTE (ab@spenxy.com): 🤔 These are optional though useful
+    # "N",    # pep8-naming
+    # "D",    # flake8-docstrings
+    # "BLE",  # flake8-blind-except
+    # "A",    # builtins
+    # "SLOT", # flake8-slot
+    # "PL",   # pylint
+
+]
+ignore = [
+    "B008",   # Falsely triggered on fastapi.Depends
+    "B904",   # IMHO, this is unnecessary for this project
+    "SIM114", # TBO, I don't understand this one
+    "RUF001", # ambiguous-unicode-character-string
+    "RUF002", # ambiguous-unicode-character-docstring
+    "RUF003", # ambiguous-unicode-character-comment
+]
+exclude = [".idea", "database/migrations", ".venv", "core/utils/__init__.py", "venv", "/venv", "/env", "lib", "/lib", 'proto_lib']
