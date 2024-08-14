@@ -89,7 +89,7 @@ DATABASES = {
         "NAME": os.environ.get("DB_NAME", "b2b_test"),
         "USER": os.environ.get("DB_USER", "admin"),
         "PASSWORD": os.environ.get("DB_PASSWORD", "admin"),
-        "HOST": os.environ.get("DB_HOST", "db"),
+        "HOST": os.environ.get("DB_HOSTNAME", "localhost"),
     }
 }
 
